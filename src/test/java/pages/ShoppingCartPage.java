@@ -17,7 +17,7 @@ public class ShoppingCartPage extends BasePage {
 
     public String quantityFor(String title) {
         return find(By.xpath("//td[normalize-space()='" + title
-                + "']/following-sibling::td[1]")).getText();
+                + "']/following-sibling::td[1]//input")).getAttribute("value");
     }
 
     public String totalFor(String title) {
