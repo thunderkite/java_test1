@@ -24,4 +24,8 @@ public class ShoppingCartPage extends BasePage {
         return find(By.xpath("//td[normalize-space()='" + title
                 + "']/following-sibling::td[5]")).getText();
     }
+
+    public void proceedToCheckout() {
+        click(By.cssSelector("input[value='Proceed to Checkout']"));
+    }
 }
