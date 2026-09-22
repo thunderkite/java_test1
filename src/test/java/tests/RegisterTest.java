@@ -54,5 +54,8 @@ class RegisterTest {
         cartPage.open();
         assertEquals("1", cartPage.quantityFor("White Fang"));
         assertTrue(cartPage.totalFor("White Fang").contains("10.70"));
+        cartPage.proceedToCheckout();
+        assertTrue(driver.getCurrentUrl().contains("checkout.py"));
+        assertTrue(driver.getPageSource().contains("10.70"));
     }
 }
