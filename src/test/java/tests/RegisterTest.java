@@ -5,6 +5,7 @@ import pages.ZipPage;
 import pages.LoginPage;
 import pages.BookPage;
 import pages.ShoppingCartPage;
+import pages.CheckoutPage;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,7 +56,9 @@ class RegisterTest {
         assertEquals("1", cartPage.quantityFor("White Fang"));
         assertTrue(cartPage.totalFor("White Fang").contains("10.70"));
         cartPage.proceedToCheckout();
-        assertTrue(driver.getCurrentUrl().contains("checkout.py"));
-        assertTrue(driver.getPageSource().contains("10.70"));
+
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        assertTrue(checkoutPage.isOpen());
+        assertTrue(checkoutPage.containsText("10.70"));
     }
 }
